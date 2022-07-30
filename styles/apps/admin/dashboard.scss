@@ -1,0 +1,25 @@
+.d-item {
+    display: flex;
+    text-align: center;
+    color: var(--surface-900);
+    justify-content: space-between;
+
+    .pi {
+        font-size: 4em;
+        margin-bottom: 15px;
+    }
+
+    .name {
+        font-size: 1.4em;
+    }
+
+    .number {
+        font-size: 3em;
+    }
+
+}
+
+.d-order {
+    background-color: #ffe53b;
+    background-image: linear-gradient(147deg, #ffe53b 0%, #ff2525 74%);
+}

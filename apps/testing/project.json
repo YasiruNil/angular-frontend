@@ -14,7 +14,7 @@
         "tsConfig": "apps/testing/tsconfig.app.json",
         "inlineStyleLanguage": "scss",
         "assets": ["apps/testing/src/favicon.ico", "apps/testing/src/assets"],
-        "styles": ["apps/testing/src/styles.scss"],
+        "styles": ["node_modules/bootstrap/scss/bootstrap.scss","apps/testing/src/styles.scss"],
         "scripts": []
       },
       "configurations": {

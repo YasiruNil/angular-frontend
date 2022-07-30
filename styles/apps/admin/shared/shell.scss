@@ -1,0 +1,64 @@
+.admin {
+    &-wrapper {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        width: 100%;
+    }
+
+    &-sidebar {
+        top: 0;
+        width: 200px;
+        height: 100%;
+        position: fixed;
+    }
+
+    &-main {
+        width: calc(100% - 260px);
+        margin-left: 220px;
+    }
+
+    &-logo {
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+
+        img {
+            width: 60%;
+        }
+
+    }
+
+    &-links {
+        ul {
+            margin: 0;
+            padding: 0;
+
+            li {
+                width: 100%;
+                display: block;
+                list-style: none;
+            }
+
+            a {
+                width: 100%;
+                padding: 10px;
+                display: block;
+                text-decoration: none;
+                color: var(--surface-900);
+
+                &:hover {
+                    color: var(--blue-700);
+                    background-color: var(--surface-900);
+                }
+
+                i {
+                    float: left;
+                    margin-top: 0;
+                    margin-right: 8px;
+                }
+
+            }
+        }
+    }
+}

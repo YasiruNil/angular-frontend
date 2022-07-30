@@ -1,0 +1,24 @@
+.product {
+    &-name {
+        font-size: 2em;
+    }
+
+    &-desc {
+        font-size: 1.4em;
+    }
+
+    &-rating {
+        margin: 15px;
+    }
+
+    &-price {
+        font-size: 1.2em;
+        font-weight: 600;
+        border-radius: 1px solid var(--surface-600);
+    }
+
+    &-rich-description {
+        line-height: 1.2em;
+    }
+
+}

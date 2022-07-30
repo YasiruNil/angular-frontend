@@ -1,0 +1,72 @@
+<div class="mt-5">
+  <p-toast></p-toast>
+  <p-card
+    header="{{ edditMode ? 'Edit Category' : 'Add Category' }}"
+    subheader="List of all categories"
+  >
+    <div class="flex justify-content-end">
+      <p-button
+        styleClass="p-button-primary mr-3"
+        [label]="edditMode ? 'Update Category' : 'Add Category'"
+        icon="pi pi-plus"
+        (click)="!isSubmited ? onSubmit() : null"
+        [disabled]="!!isSubmited"
+      >
+      </p-button>
+      <p-button
+        styleClass="p-button-secondary"
+        label="Cancel"
+        icon="pi pi-arrow-circle-left"
+        routerLink="/category"
+      >
+      </p-button>
+    </div>
+    <div class="p-grid">
+      <div class="col-12">
+        <form [formGroup]="form">
+          <div class="formgrid grid">
+            <div class="field col">
+              <label for="name">Name</label>
+              <input
+                id="name"
+                formControlName="name"
+                type="text"
+                (click)="enableButton()"
+                class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"
+              />
+              <small
+                *ngIf="categoryForm['name'].invalid && isSubmited"
+                class="p-error"
+              >
+                Name is Required</small
+              >
+            </div>
+            <div class="field col">
+              <label for="icon">Icon</label>
+              <input
+                id="icon"
+                type="text"
+                formControlName="icon"
+                (click)="enableButton()"
+                class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"
+              />
+              <small
+                *ngIf="categoryForm['icon'].invalid && isSubmited"
+                class="p-error"
+              >
+                icon is Required</small
+              >
+            </div>
+            <div class="field col">
+              <label for="icon">Icon</label>
+              <p-colorPicker
+                (click)="enableButton()"
+                formControlName="color"
+              ></p-colorPicker>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </p-card>
+</div>

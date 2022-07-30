@@ -1,0 +1,158 @@
+<div class="mt-5">
+  <p-toast></p-toast>
+  <p-card
+    header="{{ edditMode ? 'Edit User' : 'Add User' }}"
+    subheader="List of all User detals"
+  >
+    <div class="flex justify-content-end">
+      <p-button
+        styleClass="p-button-primary mr-3"
+        [label]="edditMode ? 'Update Category' : 'Add Category'"
+        icon="pi pi-plus"
+        (click)="!isSubmited ? onSubmit() : null"
+        [disabled]="!!isSubmited"
+      >
+      </p-button>
+      <p-button
+        styleClass="p-button-secondary"
+        label="Cancel"
+        icon="pi pi-arrow-circle-left"
+        routerLink="/users"
+      >
+      </p-button>
+    </div>
+    <div class="p-grid">
+      <div class="col-12">
+        <form [formGroup]="form">
+          <div class="formgrid grid">
+            <div class="field col-4">
+              <label for="name">Name</label>
+              <input
+                id="name"
+                formControlName="name"
+                type="text"
+                (click)="enableButton()"
+                class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"
+              />
+              <small
+                *ngIf="userForm['name'].invalid && isSubmited"
+                class="p-error"
+              >
+                Name is Required</small
+              >
+            </div>
+            <div class="field col-4">
+              <label for="email">Email</label>
+              <input
+                id="email"
+                type="text"
+                formControlName="email"
+                (click)="enableButton()"
+                class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"
+              />
+              <small
+                *ngIf="userForm['email'].invalid && isSubmited"
+                class="p-error"
+              >
+                Email is Required</small
+              >
+            </div>
+            <div class="field col-4">
+              <label for="phone">Phone</label>
+              <input
+                id="phone"
+                type="text"
+                formControlName="phone"
+                (click)="enableButton()"
+                class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"
+              />
+              <small
+                *ngIf="userForm['phone'].invalid && isSubmited"
+                class="p-error"
+              >
+                Phone is Required</small
+              >
+            </div>
+            <div class="field col-4">
+              <label for="isAdmin">isAdmin</label>
+              <p-inputSwitch
+                (click)="enableButton()"
+                formControlName="isAdmin"
+              ></p-inputSwitch>
+            </div>
+            <div class="field col-4">
+              <label for="street">Street</label>
+              <input
+                id="street"
+                type="text"
+                formControlName="street"
+                (click)="enableButton()"
+                class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"
+              />
+              <small
+                *ngIf="userForm['street'].invalid && isSubmited"
+                class="p-error"
+              >
+                Street is Required</small
+              >
+            </div>
+            <div class="field col-4">
+              <label for="apartment">Apartment</label>
+              <input
+                id="apartment"
+                type="text"
+                formControlName="apartment"
+                (click)="enableButton()"
+                class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"
+              />
+              <small
+                *ngIf="userForm['apartment'].invalid && isSubmited"
+                class="p-error"
+              >
+                Apartment is Required</small
+              >
+            </div>
+            <div class="field col-4">
+              <label for="zip">Zip</label>
+              <input
+                id="zip"
+                type="text"
+                formControlName="zip"
+                (click)="enableButton()"
+                class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"
+              />
+              <small
+                *ngIf="userForm['zip'].invalid && isSubmited"
+                class="p-error"
+              >
+                Apartment is Required</small
+              >
+            </div>
+            <div class="field col-4">
+              <label for="country">Country</label>
+              <p-dropdown
+                id="country"
+                [filter]="true"
+                formControlName="country"
+                [options]="countries"
+                optionLabel="name"
+                optionValue="id"
+                filterBy="name"
+                [showClear]="true"
+                (click)="enableButton()"
+                placeholder="Select a country"
+              >
+              </p-dropdown>
+              <small
+                *ngIf="userForm['country'].invalid && isSubmited"
+                class="p-error"
+              >
+                Country is Required</small
+              >
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </p-card>
+</div>

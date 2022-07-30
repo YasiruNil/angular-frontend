@@ -1,0 +1,55 @@
+<p-card header="Users" subheader="List of all users">
+  <p-toast></p-toast>
+  <p-confirmDialog
+    header="Confirmation"
+    icon="pi pi-exclamation-triangle"
+  ></p-confirmDialog>
+  <p-table [value]="users" responsiveLayout="scroll">
+    <ng-template pTemplate="caption">
+      <div class="flex align-items-center justify-content-end">
+        <div>
+          <p-button
+            styleClass="p-button-primary"
+            label="New"
+            icon="pi pi-plus"
+            routerLink="form"
+          >
+          </p-button>
+        </div>
+      </div>
+    </ng-template>
+    <ng-template pTemplate="header">
+      <tr>
+        <th pSortableColumn="name">
+          name<p-sortIcon field="name"></p-sortIcon>
+        </th>
+        <th>email</th>
+        <th>phone</th>
+        <th>isAdmin</th>
+        <th>country</th>
+        <th></th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-user>
+      <tr>
+        <td>{{ user.name }}</td>
+        <td>{{ user.email }}</td>
+        <td>{{ user.phone }}</td>
+        <td>{{ user.isAdmin }}</td>
+        <td>{{ getCountryName(user.country) || user.country }}</td>
+        <td>
+          <p-button
+            (click)="deleteUser(user.id)"
+            styleClass="p-button-danger mr-2"
+            icon="pi pi-trash"
+          ></p-button>
+          <p-button
+            styleClass="p-button-success"
+            icon="pi pi-pencil"
+            (click)="updateUser(user.id)"
+          ></p-button>
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+</p-card>
